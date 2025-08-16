@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="trial1.css" />
+  </head>
+  <body>
+    <div class="grid-calculator">
+      <input class="grid-display" id="display" type="text" placeholder="8.8.8.8.8.8.8.8.8.8.8.8" readonly></input>
+      <button class="grid-item item1" type="reset" onclick="Off()" value="reset">
+        OFF
+      </button>
+      <button class="grid-item item2" value="MR">MR</button>
+      <button class="grid-item item3">M+</button>
+      <button class="grid-item item4">M-</button>
+      <button class="grid-item item5" onclick="append('/')">/</button>
+      <button class="grid-item item6" onclick="clearDisplay()">C</button>
+      <button class="grid-item item7" onclick="append('7')" >7</button>
+      <button class="grid-item item8" onclick="append('8')">8</button>
+      <button class="grid-item item9" onclick="append('9')">9</button>
+      <button class="grid-item item10" onclick="append('*')">*</button>
+      <button class="grid-item item11" onclick="append('%')">%</button>
+      <button class="grid-item item12" onclick="append('4')">4</button>
+      <button class="grid-item item13" onclick="append('5')">5</button>
+      <button class="grid-item item14" onclick="append('6')">6</button>
+      <button class="grid-item item15" onclick="append('-')">-</button>
+      <button class="grid-item item16" onclick="append('^')">^</button>
+      <button class="grid-item item17" onclick="append('1')">1</button>
+      <button class="grid-item item18" onclick="append('2')">2</button>
+      <button class="grid-item item19" onclick="append('3')">3</button>
+      <button class="grid-item item20" onclick="append('+')">+</button>
+      <button class="grid-item item21" onclick="append('+/-')">+/-</button>
+      <button class="grid-item item22" onclick="append('0')">0</button>
+      <button class="grid-item item23" onclick="append('.')">.</button>
+      <button class="grid-item item24" onclick="calculate()">=</button>
+       <button class="grid-item item25" type="button"
+        onclick="on()" value="reset">ON</button>
+    
+    </div>
+    <script>
+     
+      var display = document.getElementById("display");
+       var off=true;
+      function append(value)
+      {
+        if(off) return;
+        display.value += value
+      }    
+      function clearDisplay(){
+        display.value=" ";
+      }
+      function Off(){
+        off=true;
+        display.value = '';
+        display.removeAttribute('placeholder');
+      }
+      function on(){
+        off=false;
+        display.ON = 'ON';
+        //display.setAttribute('placeholder', 0)
+      }
+      function calculate()
+      {
+        try{
+          display.value=eval
+          (display.value);
+        }
+        catch
+        {
+          display.value='error';
+        }
+      }
+    </script>
+  </body>
+</html>
